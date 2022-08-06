@@ -1,10 +1,12 @@
-import logo from "./logo.svg"
 import "./App.css"
-import MyComponent from "./MyComponent"
-import UseEffect2Component from "./UseEffect2Component"
+import FetchApi from "./fetch-api-demos/FetchApi"
 
 function App() {
-  return <UseEffect2Component />
+  return (
+    <>
+      <FetchApi />
+    </>
+  )
 }
 
 export default App
