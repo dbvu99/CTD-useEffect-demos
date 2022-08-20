@@ -1,13 +1,14 @@
-// create a react functional component called MyComponent
+import React from "react"
 import { useState } from "react"
-
 import { useEffect } from "react"
 
-const MyComponent = () => {
+function UseEffect2Component() {
   const [data, setData] = useState([])
   const [loadingData, setLoadingData] = useState(true)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
+    console.log("hey I am running")
     setTimeout(() => {
       const fakeData = [
         { id: 1, name: "John" },
@@ -17,7 +18,11 @@ const MyComponent = () => {
       setData(fakeData)
       setLoadingData(false)
     }, 2000)
-  }, [])
+  }, [count])
+
+  const increaseCountByOne = () => {
+    setCount(count + 1)
+  }
 
   return (
     <div>
@@ -28,8 +33,10 @@ const MyComponent = () => {
           <li key={item.id}>{item.name}</li>
         ))}
       </ul>
+      <h1>My Count {count}</h1>
+      <button onClick={increaseCountByOne}>increase the count by 1</button>
     </div>
   )
 }
 
-export default MyComponent
+export default UseEffect2Component

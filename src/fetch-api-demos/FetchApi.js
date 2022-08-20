@@ -32,6 +32,7 @@ function FetchApi() {
 
   return (
     <div>
+      <h1>Fetch API Demo - Randon User Profile</h1>
       {loadingData && <h1>Loading data...</h1>}
       {data && (
         <div>

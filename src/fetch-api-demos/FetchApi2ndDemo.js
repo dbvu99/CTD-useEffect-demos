@@ -33,6 +33,9 @@ function FetchApi2ndDemo() {
 
   const [filterValue, setFilterValue] = useState("")
   const [filteredData, setFilteredData] = useState(null)
+  const [newState, setNewState] = useState("random data")
+
+  // const newState = "randome data"
 
   useEffect(() => {
     // we do the data filter inside this use effect
@@ -58,11 +61,13 @@ function FetchApi2ndDemo() {
 
   return (
     <div className="container">
+      <h1>Fetch API Demo - Product List with filter</h1>
       <form className="fixed-top w-100 bg-primary p-2">
         <label className="me-3">Filter by title</label>
         <input value={filterValue} onChange={handleFilterChange}></input>
       </form>
       <hr />
+      {/* {newState} */}
       {loadingData && <h1>Loading data...</h1>}
       {filteredData?.length > 0 && (
         <div className="pt-5">
