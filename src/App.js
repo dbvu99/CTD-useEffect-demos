@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 import FetchApi from "./fetch-api-demos/FetchApi"
 import UseEffect1Component from "./use-effect-demos/UseEffect1Component"
 import UseEffect2Component from "./use-effect-demos/UseEffect2Component"
+import UseEffectWithCleanUp from "./use-effect-demos/UseEffectWithCleanUp"
 
 const fetchApiDemoItem = {
   path: "/fetch-api-demo-random-user-profile",
@@ -24,6 +25,11 @@ const useEffectBasicDemo = {
 const useEffectBasicDemo2 = {
   path: "/use-effect-with-dependencies-demo",
   title: "Use Effect with Dependencies Demo",
+}
+
+const useEffectWithCleanUp = {
+  path: "/use-effect-with-clean-up-demo",
+  title: "Use Effect with Clean Up Demo",
 }
 
 function App() {
@@ -49,6 +55,9 @@ function App() {
             <Link to={useEffectBasicDemo2.path}>{useEffectBasicDemo2.title}</Link>
           </li>
           <li>
+            <Link to={useEffectWithCleanUp.path}>{useEffectWithCleanUp.title}</Link>
+          </li>
+          <li>
             <Link to="/new-page">new page</Link>
           </li>
           <li>
@@ -61,6 +70,7 @@ function App() {
           <Route path={fetchApiDemoItem2.path} element={<FetchApi2ndDemo />}></Route>
           <Route path={useEffectBasicDemo.path} element={<UseEffect1Component />}></Route>
           <Route path={useEffectBasicDemo2.path} element={<UseEffect2Component />}></Route>
+          <Route path={useEffectWithCleanUp.path} element={<UseEffectWithCleanUp />}></Route>
           {/* this is how we create new page */}
           <Route
             path="/new-page"
