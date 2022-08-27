@@ -6,6 +6,9 @@ function FetchApi() {
 
   useEffect(() => {
     //   fetch data from the api
+
+    let isSubscribed = true
+
     fetch("https://randomuser.me/api/")
       .then((res) => {
         //  we use then to handle a successful response/promise
@@ -13,12 +16,14 @@ function FetchApi() {
         res
           .json()
           .then((data) => {
-            //   get the user data from the successful response
-            const result = data.results[0]
+            if (isSubscribed) {
+              //   get the user data from the successful response
+              const result = data.results[0]
 
-            //   set the loading state to false after the data is loaded
-            setLoadingData(false)
-            setData(result)
+              //   set the loading state to false after the data is loaded
+              setLoadingData(false)
+              setData(result)
+            }
           })
           .catch((error) => {
             console.log(error)
@@ -28,6 +33,10 @@ function FetchApi() {
         // we use catch to handle an error response/ failed promise
         console.log(error)
       })
+
+    return () => {
+      isSubscribed = false
+    }
   }, [])
 
   return (
