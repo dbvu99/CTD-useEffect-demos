@@ -8,6 +8,7 @@ import UseEffect2Component from "./use-effect-demos/UseEffect2Component"
 import UseEffectWithCleanUp from "./use-effect-demos/UseEffectWithCleanUp"
 import DynamicRoutesDemo from "./react-router-demos/DynamicRoutesDemo"
 import SocialMediaClone from "./react-router-demos/SocialMediaClone"
+import AllComments from "./react-router-demos/AllComments"
 
 const fetchApiDemoItem = {
   path: "/fetch-api-demo-random-user-profile",
@@ -91,6 +92,7 @@ function App() {
             }
           ></Route>
           <Route path={dynamicRouteDemo.path} element={<SocialMediaClone />}></Route>
+          <Route path={"/dynamic-route-app/:id"} element={<AllComments />}></Route>
         </Routes>
       </div>
     </Router>

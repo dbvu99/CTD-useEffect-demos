@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { Route, Routes } from "react-router-dom"
+import AllComments from "./AllComments"
 import SinglePost from "./SinglePost"
 
 function SocialMediaClone() {
@@ -27,10 +29,14 @@ function SocialMediaClone() {
     <div>
       {isLoading ?? <p>Loading posts...</p>}
       <div>
+        <h1>All posts</h1>
         {posts.map((post) => (
           <SinglePost key={post.id} {...post} />
         ))}
       </div>
+      {/* <Routes>
+        <Route path={"/dynamic-route-app/:id"} element={<AllComments />}></Route>
+      </Routes> */}
     </div>
   )
 }
