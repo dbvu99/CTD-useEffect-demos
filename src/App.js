@@ -6,6 +6,8 @@ import FetchApi from "./fetch-api-demos/FetchApi"
 import UseEffect1Component from "./use-effect-demos/UseEffect1Component"
 import UseEffect2Component from "./use-effect-demos/UseEffect2Component"
 import UseEffectWithCleanUp from "./use-effect-demos/UseEffectWithCleanUp"
+import DynamicRoutesDemo from "./react-router-demos/DynamicRoutesDemo"
+import SocialMediaClone from "./react-router-demos/SocialMediaClone"
 
 const fetchApiDemoItem = {
   path: "/fetch-api-demo-random-user-profile",
@@ -30,6 +32,11 @@ const useEffectBasicDemo2 = {
 const useEffectWithCleanUp = {
   path: "/use-effect-with-clean-up-demo",
   title: "Use Effect with Clean Up Demo",
+}
+
+const dynamicRouteDemo = {
+  path: "/dynamic-route-app",
+  title: "Social Media Clone - Dynamic Route Demo",
 }
 
 function App() {
@@ -63,6 +70,9 @@ function App() {
           <li>
             <a href="/new-page">New Page with anchor tag</a>
           </li>
+          <li>
+            <Link to={dynamicRouteDemo.path}>{dynamicRouteDemo.title}</Link>
+          </li>
         </ul>
 
         <Routes>
@@ -71,7 +81,7 @@ function App() {
           <Route path={useEffectBasicDemo.path} element={<UseEffect1Component />}></Route>
           <Route path={useEffectBasicDemo2.path} element={<UseEffect2Component />}></Route>
           <Route path={useEffectWithCleanUp.path} element={<UseEffectWithCleanUp />}></Route>
-          {/* this is how we create new page */}
+          <Route path=":dynamicRoute" element={<DynamicRoutesDemo />}></Route>
           <Route
             path="/new-page"
             element={
@@ -80,6 +90,7 @@ function App() {
               </>
             }
           ></Route>
+          <Route path={dynamicRouteDemo.path} element={<SocialMediaClone />}></Route>
         </Routes>
       </div>
     </Router>
